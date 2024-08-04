@@ -16,8 +16,8 @@ app.get('/', async (req: Request, res: Response) => {
 });
 
 app.post('/send_email', async (req: Request, res: Response) => {
-    const { respostas, type } = req.body;
     try {
+        const { respostas, type } = req.body;
 
         //@ts-ignore
         await mailer.default.sendMail({
