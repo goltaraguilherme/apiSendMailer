@@ -9,6 +9,8 @@ const app = express();
 
 app.use(express.json());
 
+app.use(cors());
+
 const port:number = 3000 | <number>Number(process.env.PORT);
 
 app.get('/', async (req: Request, res: Response) => {
@@ -36,8 +38,6 @@ app.post('/send_email', async (req: Request, res: Response) => {
         res.status(400).send({err: 'Tente novamente em instantes.'})
     }
 })
-
-app.use(cors())
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
